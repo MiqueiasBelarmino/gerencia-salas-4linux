@@ -1,0 +1,44 @@
+<h1 mat-dialog-title>Agendamento de Sala</h1>
+<div mat-dialog-content>
+  <form class="example-form" [formGroup]="agendaForm">
+    <h1 mat-dialog-title>{{data.nome}}</h1>
+    <input [hidden]="true" formControlName="sala_id" name="sala_id" [(ngModel)]="data.id">
+    <div fxLayout="row wrap">
+      <div fxFlex="50" fxFill fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>Data de Início</mat-label>
+          <input matInput [matDatepicker]="pickerdataInicio" formControlName="data_inicio" name="data_inicio">
+          <mat-datepicker-toggle matSuffix [for]="pickerdataInicio"></mat-datepicker-toggle>
+          <mat-datepicker #pickerdataInicio></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- <div fxFlex="50" fxFill fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>Horário de Início</mat-label>
+          <input matInput type="time" placeholder="" formControlName="horaInicio" name="horaInicio" #time />
+        </mat-form-field>
+      </div> -->
+    </div>
+
+    <div fxLayout="row wrap">
+      <div fxFlex="50" fxFill fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>Data de Término</mat-label>
+          <input matInput [matDatepicker]="pickerdataTermino"  formControlName="data_termino" name="data_termino">
+          <mat-datepicker-toggle matSuffix [for]="pickerdataTermino"></mat-datepicker-toggle>
+          <mat-datepicker #pickerdataTermino></mat-datepicker>
+        </mat-form-field>
+      </div>
+      <!-- <div fxFlex="50" fxFill fxLayoutAlign="start center">
+        <mat-form-field>
+          <mat-label>Horário de Término</mat-label>
+          <input matInput type="time" placeholder=""formControlName="horaTermino" name="horaTermino" #time />
+        </mat-form-field>
+      </div> -->
+    </div>
+  </form>
+</div>
+<div mat-dialog-actions>
+  <button mat-raised-button color="primary" (click)="createAgendamento()">Salvar</button>
+  <button mat-button (click)="cancel()">Cancelar</button>
+</div>
