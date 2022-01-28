@@ -73,6 +73,7 @@ export class SalaAgendarDialogComponent implements OnInit {
     this.agendaService.postAgendamento(this.agendaForm.value).subscribe(response =>{console.log(response)});
     this.dialogRef.close();
     this.agendaForm.reset();
+    window.location.reload();
   }
 
   cancel(): void {

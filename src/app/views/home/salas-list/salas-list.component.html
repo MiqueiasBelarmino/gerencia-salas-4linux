@@ -1,6 +1,9 @@
 <mat-tab-group mat-align-tabs="start" class="tab-space">
   <mat-tab label="Salas">
-    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+
+    <mat-progress-bar *ngIf="!salasReady" mode="indeterminate"></mat-progress-bar>
+
+    <div *ngIf="salasReady" fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
       <ng-container *ngFor="let sala of salasGeral" style="margin: 0.5%;">
 
         <mat-card class="mat-card-sala"
@@ -55,7 +58,9 @@
     </div>
   </mat-tab> -->
   <mat-tab label="Agendamentos">
-    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+    <mat-progress-bar *ngIf="!agendamentosReady" mode="indeterminate"></mat-progress-bar>
+
+    <div *ngIf="agendamentosReady" fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
       <ng-container *ngFor="let agenda of agendamentos" style="margin: 0.5%;">
 
         <mat-card class="mat-card-sala"

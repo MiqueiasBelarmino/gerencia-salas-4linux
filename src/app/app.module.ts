@@ -11,6 +11,7 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatIconModule } from '@angular/material/icon';
 import { MatInputModule } from '@angular/material/input';
+import { MatProgressBarModule } from '@angular/material/progress-bar';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { BrowserModule } from '@angular/platform-browser';
@@ -20,9 +21,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { LocalDateTimePipe } from './shared/pipe/local-date-time.pipe';
 import { HomeComponent } from './views/home/home.component';
+import { SalaAgendarDialogComponent } from './views/home/sala-agendar-dialog/sala-agendar-dialog.component';
 import { SalaFormDialogComponent } from './views/home/sala-form-dialog/sala-form-dialog.component';
 import { SalasListComponent } from './views/home/salas-list/salas-list.component';
-import { SalaAgendarDialogComponent } from './views/home/sala-agendar-dialog/sala-agendar-dialog.component';
 
 @NgModule({
   declarations: [
@@ -51,7 +52,8 @@ import { SalaAgendarDialogComponent } from './views/home/sala-agendar-dialog/sal
     FormsModule,
     ReactiveFormsModule,
     MatFormFieldModule,
-    MatDatepickerModule
+    MatDatepickerModule,
+    MatProgressBarModule
   ],
   providers: [
     LocalDateTimePipe

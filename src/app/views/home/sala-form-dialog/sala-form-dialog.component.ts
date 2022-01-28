@@ -32,6 +32,7 @@ export class SalaFormDialogComponent implements OnInit {
     this.salaService.postSala(this.salaForm.value).subscribe(response =>{console.log(response)});
     this.dialogRef.close();
     this.salaForm.reset();
+    window.location.reload();
   }
 
   cancel(): void {

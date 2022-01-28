@@ -15,6 +15,8 @@ export class SalasListComponent implements OnInit {
   salasGeral: Sala[] = [];
   agendamentos: Sala[] = [];
   // salasDisponiveis: Sala[] = [];
+  salasReady: boolean = false;
+  agendamentosReady: boolean = false;
 
   constructor(
     public salaService: SalaService,
@@ -30,9 +32,11 @@ export class SalasListComponent implements OnInit {
   getSalas() {
     this.salaService.getSalas().subscribe((data) => {
       this.salasGeral = data.data;
+      this.salasReady = true;
     });
     this.agendamentoService.getAgendamentos().subscribe((data) => {
       this.agendamentos = data.data;
+      this.agendamentosReady = true;
     });
     // this.salaService.getSalasWithFlag('disponivel').subscribe((data) => {
     //   this.salasDisponiveis = data.data;
