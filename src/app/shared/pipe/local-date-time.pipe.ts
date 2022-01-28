@@ -8,8 +8,7 @@ export class LocalDateTimePipe implements PipeTransform {
 
   transform(date: string): string {
     let outputDate: moment.Moment = moment(date, "YYYY-MM-DD HH:mm:ss");
-    // return outputDate.format('DD-MM-YYYY HH:mm');
-    return outputDate.format('DD-MM-YYYY');
+    return outputDate.format('DD-MM-YYYY HH:mm');
   }
 
 }

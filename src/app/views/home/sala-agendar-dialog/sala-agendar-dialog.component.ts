@@ -42,14 +42,16 @@ export const MY_FORMATS = {
 })
 export class SalaAgendarDialogComponent implements OnInit {
 
-  receivedData: {}= {};
   public agendaForm: FormGroup = new FormGroup({
-    nome: new FormControl(''),
-    capacidate: new FormControl('')
+    sala_id: new FormControl(''),
+    data_inicio: new FormControl(''),
+    data_termino: new FormControl(''),
+    horaInicio: new FormControl(''),
+    horaTermino: new FormControl(''),
   })
 
   constructor(
-    public formBuilder: FormBuilder,
+    public formBuilderAgendar: FormBuilder,
     public agendaService: AgendamentoService,
     public dialogRef: MatDialogRef<SalaAgendarDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
@@ -57,10 +59,12 @@ export class SalaAgendarDialogComponent implements OnInit {
     }
 
   ngOnInit(): void {
-    this.agendaForm = this.formBuilder.group({
+    this.agendaForm = this.formBuilderAgendar.group({
       sala_id:['',[Validators.required]],
       data_inicio:['',[Validators.required]],
-      data_termino:['',[Validators.required]]
+      data_termino:['',[Validators.required]],
+      horaInicio:['',[Validators.required]],
+      horaTermino:['',[Validators.required]]
     });
   }
 

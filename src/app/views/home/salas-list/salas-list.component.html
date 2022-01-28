@@ -1,42 +1,7 @@
 <mat-tab-group mat-align-tabs="start" class="tab-space">
-  <mat-tab label="Tudo">
+  <mat-tab label="Salas">
     <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
       <ng-container *ngFor="let sala of salasGeral" style="margin: 0.5%;">
-
-        <mat-card class="mat-card-sala"
-        fxFlex="0 1 calc(33.3% - 11px)"
-        fxFlex.gt-md="0 1 calc(50% - 11px)"
-        fxFlex.gt-sm="100%">
-          <mat-card-title class="mat-card-sala-title">
-            <div class="row">
-              <p>
-                <span fxFlex="70" fxLayoutAlign="start center">{{sala.nome}}</span>
-                <span fxFlex></span>
-
-                  <span fxFlex="30" style="font-size:0.9rem;" fxLayoutAlign="end center">Capacidade: {{sala.capacidade}}</span>
-
-              </p>
-              <p style="font-size:0.9rem;">
-                <mat-chip class="mat-chip-date">
-
-                  De: <span>{{sala.dataInicio | localDateTime}}</span> até: <span>{{sala.dataInicio | localDateTime}}</span>
-                </mat-chip>
-              </p>
-            </div>
-          </mat-card-title>
-          <mat-card-content>
-          </mat-card-content>
-          <mat-card-actions>
-            <button class="primary" mat-raised-button (click)="agendar(sala.id,sala.nome)" ><mat-icon>date_range</mat-icon>Reservar</button>
-          </mat-card-actions>
-        </mat-card>
-
-      </ng-container>
-    </div>
-  </mat-tab>
-  <mat-tab label="Disponíveis">
-    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
-      <ng-container *ngFor="let sala of salasDisponiveis" style="margin: 0.5%;">
 
         <mat-card class="mat-card-sala"
         fxFlex="0 1 calc(33.3% - 11px)"
@@ -52,11 +17,69 @@
             </div>
           </mat-card-title>
           <mat-card-content>
-
           </mat-card-content>
           <mat-card-actions>
             <button class="primary" mat-raised-button (click)="agendar(sala.id,sala.nome)" ><mat-icon>date_range</mat-icon>Reservar</button>
           </mat-card-actions>
+        </mat-card>
+
+      </ng-container>
+    </div>
+  </mat-tab>
+  <!-- <mat-tab label="Disponíveis">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+      <ng-container *ngFor="let salaD of salasDisponiveis" style="margin: 0.5%;">
+
+        <mat-card class="mat-card-sala"
+        fxFlex="0 1 calc(33.3% - 11px)"
+        fxFlex.gt-md="0 1 calc(50% - 11px)"
+        fxFlex.gt-sm="100%">
+          <mat-card-title class="mat-card-sala-title">
+            <div class="row">
+              <p>
+                <span fxFlex="70" fxLayoutAlign="start center">{{salaD.nome}}</span>
+                <span fxFlex></span>
+                <span fxFlex="30" style="font-size:0.9rem;" fxLayoutAlign="end center">Capacidade: {{salaD.capacidade}}</span>
+              </p>
+            </div>
+          </mat-card-title>
+          <mat-card-content>
+
+          </mat-card-content>
+          <mat-card-actions>
+            <button class="primary" mat-raised-button (click)="agendar(salaD.id,salaD.nome)" ><mat-icon>date_range</mat-icon>Reservar</button>
+          </mat-card-actions>
+        </mat-card>
+
+      </ng-container>
+    </div>
+  </mat-tab> -->
+  <mat-tab label="Agendamentos">
+    <div fxLayout="row wrap" fxLayoutAlign="start center" style="padding: 2%;">
+      <ng-container *ngFor="let agenda of agendamentos" style="margin: 0.5%;">
+
+        <mat-card class="mat-card-sala"
+        fxFlex="0 1 calc(33.3% - 11px)"
+        fxFlex.gt-md="0 1 calc(50% - 11px)"
+        fxFlex.gt-sm="100%">
+          <mat-card-title class="mat-card-sala-title">
+            <div class="row">
+              <p>
+                <span fxFlex="70" fxLayoutAlign="start center">{{agenda.nome}}</span>
+                <span fxFlex></span>
+
+                  <span fxFlex="30" style="font-size:0.9rem;" fxLayoutAlign="end center">Capacidade: {{agenda.capacidade}}</span>
+
+              </p>
+              <p>
+                <mat-chip class="mat-chip-date">
+                  De: <span>{{agenda.dataInicio | localDateTime}}</span> até: <span>{{agenda.dataTermino | localDateTime}}</span>
+                </mat-chip>
+              </p>
+            </div>
+          </mat-card-title>
+          <mat-card-content>
+          </mat-card-content>
         </mat-card>
 
       </ng-container>

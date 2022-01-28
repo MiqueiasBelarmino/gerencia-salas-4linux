@@ -20,7 +20,10 @@ export class SalaService {
 
   constructor(private httpClient: HttpClient) { }
 
-  public getSalas(flag: string): Observable<ResponsePageable>{
+  public getSalas(): Observable<ResponsePageable>{
+    return this.httpClient.get<ResponsePageable>(this.apiUrl,this.httpOptions);
+  }
+  public getSalasWithFlag(flag: string): Observable<ResponsePageable>{
     return this.httpClient.get<ResponsePageable>(this.apiUrl+''+(flag=='disponivel'?'?disponivel=1':''),this.httpOptions);
   }
 

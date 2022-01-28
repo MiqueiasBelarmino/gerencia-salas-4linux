@@ -1,3 +1,4 @@
+import { AgendamentoService } from './../../../shared/service/agendamento.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SalaAgendarDialogComponent } from './../sala-agendar-dialog/sala-agendar-dialog.component';
 import { Sala } from './../../../shared/model/sala.model';
@@ -12,11 +13,12 @@ import { Component, OnInit } from '@angular/core';
 export class SalasListComponent implements OnInit {
 
   salasGeral: Sala[] = [];
-  salasDisponiveis: Sala[] = [];
-  hideButton: any[] = [];
+  agendamentos: Sala[] = [];
+  // salasDisponiveis: Sala[] = [];
 
   constructor(
     public salaService: SalaService,
+    public agendamentoService: AgendamentoService,
     public dialog: MatDialog
     ) {}
 
@@ -25,19 +27,16 @@ export class SalasListComponent implements OnInit {
   }
 
 
-  hide(id: number) {
-    this.hideButton[id] = true;
-  }
-
   getSalas() {
-    this.salaService.getSalas('').subscribe((data) => {
+    this.salaService.getSalas().subscribe((data) => {
       this.salasGeral = data.data;
-      // console.log(this.salasGeral);
     });
-    this.salaService.getSalas('disponivel').subscribe((data) => {
-      this.salasDisponiveis = data.data;
-      // console.log(this.salasDisponiveis);
+    this.agendamentoService.getAgendamentos().subscribe((data) => {
+      this.agendamentos = data.data;
     });
+    // this.salaService.getSalasWithFlag('disponivel').subscribe((data) => {
+    //   this.salasDisponiveis = data.data;
+    // });
   }
 
   agendar(salaId: number, salaNome: string): void {
